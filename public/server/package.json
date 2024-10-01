@@ -1,0 +1,10 @@
+{
+  "name": "@tech-challenge/server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Rene Felix",
+  "license": "MIT",
+  "scripts": {
+	"start": "npx json-server db.json"
+  }
+}

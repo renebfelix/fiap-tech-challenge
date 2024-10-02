@@ -5,6 +5,9 @@
   "author": "Rene Felix",
   "license": "MIT",
   "scripts": {
-	"start": "npx json-server db.json"
+    "start": "json-server --port 3001 db.json"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
   }
 }

@@ -18,6 +18,7 @@
 	"scripts": {
 		"frontend": "yarn workspace @tech-challenge/frontend",
 		"frontend:dev": "yarn workspace @tech-challenge/frontend dev",
+		"server": "yarn workspace @tech-challenge/server",
 		"server:start": "yarn workspace @tech-challenge/server start"
 	}
 }

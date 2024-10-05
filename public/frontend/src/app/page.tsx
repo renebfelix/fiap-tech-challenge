@@ -1,4 +1,5 @@
-import { Box, Text, Button, Select } from "@chakra-ui/react";
+import { Box, Text, Button, Select, IconButton } from "@chakra-ui/react";
+import { FaSearch } from "react-icons/fa";
 
 export default function Page() {
 	return (
@@ -14,6 +15,8 @@ export default function Page() {
 				<option value={"Opção 1"}>Opção 1</option>
 				<option value={"Opção 2"}>Opção 2</option>
 			</Select>
+
+			<IconButton variant={"circleOutlineSecondary"} icon={<FaSearch />} aria-label="Search" />
 		</Box>
 	);
 }

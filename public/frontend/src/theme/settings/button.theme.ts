@@ -19,6 +19,34 @@ export const buttonTheme = defineStyleConfig({
 			_hover: {
 				opacity: 0.8,
 			},
-		}
+		},
+		circlePrimary: {
+			borderRadius: "100%",
+			backgroundColor: "primary",
+
+			_hover: {
+				backgroundColor: "grey",
+				color: "primary",
+			}
+		},
+		circleSecondary: {
+			borderRadius: "100%",
+			backgroundColor: "secondary",
+
+			_hover: {
+				opacity: 0.8,
+			},
+		},
+		circleOutlineSecondary: {
+			borderRadius: "100%",
+			backgroundColor: "white",
+			border: "1px solid",
+			borderColor: "secondary",
+			color: "secondary",
+
+			_hover: {
+				opacity: 0.8,
+			},
+		},
 	},
 });

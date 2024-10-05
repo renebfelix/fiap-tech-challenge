@@ -13,4 +13,12 @@ export const theme = extendTheme({
 		Button: buttonTheme,
 		Select: selectTheme
 	},
+	styles: {
+		global: {
+			html: {
+				fontFamily: "inter",
+				color: 'red',
+			}
+		}
+	}
 });

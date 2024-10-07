@@ -5,8 +5,10 @@ import { IoIosMenu } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { MdClose } from "react-icons/md";
 import { useState } from "react";
+import { SidenavLinksProps } from "@/types/sidenav";
+import { NavLink } from "../NavLink/NavLink";
 
-export const Header = () => {
+export const Header = (params: { links: Array<SidenavLinksProps>}) => {
 	const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false);
 
 	return (
@@ -63,8 +65,17 @@ export const Header = () => {
 					width="100%"
 					top="0"
 					padding={3}
+					zIndex={100}
+					borderBottom={"5px solid"}
+					borderColor={"secondary"}
 				>
-					<Flex justifyContent="end">
+					<Flex justifyContent="space-between">
+						<Box>
+							{params.links.map((item) => {
+								return <NavLink key={item.href} {...item} />
+							})}
+						</Box>
+
 						<Button
 							variant="unstyled"
 							color="success"

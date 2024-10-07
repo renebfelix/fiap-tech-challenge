@@ -6,4 +6,5 @@ export const colorsTheme = {
 	offwhite: "#F8F8F8",
 	black: "#000000",
 	success: "#47A138",
+	lightGreen: "#E4EDE3",
 };

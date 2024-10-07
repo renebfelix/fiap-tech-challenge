@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Box, Text, IconButton } from "@chakra-ui/react";
+import { Flex, Box, Text, IconButton, Button } from "@chakra-ui/react";
 import { IoIosMenu } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { MdClose } from "react-icons/md";
@@ -25,13 +25,14 @@ export const Header = () => {
 				justifyContent={{ base: "space-between", md: "end" }}
 				paddingX={3}
 			>
-				<Box
+				<Button
+					variant="unstyled"
 					display={{ md: "none" }}
 					color="secondary"
 					onClick={() => setMobileNavIsOpen(true)}
 				>
 					<IoIosMenu fontSize={"32px"} />
-				</Box>
+				</Button>
 
 				<Flex gap={2} alignItems="center">
 					<Text
@@ -63,12 +64,14 @@ export const Header = () => {
 					top="0"
 					padding={3}
 				>
-					<Flex
-						color="success"
-						onClick={() => setMobileNavIsOpen(false)}
-						justifyContent="end"
-					>
-						<MdClose fontSize={"32px"} />
+					<Flex justifyContent="end">
+						<Button
+							variant="unstyled"
+							color="success"
+							onClick={() => setMobileNavIsOpen(false)}
+						>
+							<MdClose fontSize={"32px"} />
+						</Button>
 					</Flex>
 				</Box>
 			)}

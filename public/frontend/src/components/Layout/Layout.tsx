@@ -7,10 +7,10 @@ import { Header } from "../Header/Header";
 
 export function Layout(params: Readonly<{children: ReactNode}>){
 	const linksSidenav: Array<SidenavLinksProps> = [
-		{title: "Início", href: "", icon: <FaHome />},
-		{title: "Transferências", href: "/transferencias", icon: <FaHome />},
-		{title: "Investimentos", href: "/investimentos", icon: <FaHome />},
-		{title: "Outros serviços", href: "/outros", icon: <FaHome />},
+		{title: "Início", href: "#", icon: <FaHome />},
+		{title: "Transferências", href: "#", icon: <FaHome />},
+		{title: "Investimentos", href: "#", icon: <FaHome />},
+		{title: "Outros serviços", href: "#", icon: <FaHome />},
 	];
 
 	return (

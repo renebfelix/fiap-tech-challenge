@@ -3,7 +3,7 @@ import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
 export const textTheme = defineStyleConfig({
 	baseStyle: {
 		color: "black",
-		fontFamily: "inter",
+		fontFamily: "Inter",
 	},
 	variants: {
 		title: {

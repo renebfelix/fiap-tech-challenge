@@ -1,9 +1,8 @@
-import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
+import { defineStyleConfig } from "@chakra-ui/react";
 
 export const textTheme = defineStyleConfig({
 	baseStyle: {
 		color: "black",
-		fontFamily: "Inter",
 	},
 	variants: {
 		title: {

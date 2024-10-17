@@ -6,7 +6,7 @@ export default function Page() {
 		<>
 			<h1>Página inicial</h1>
 			<Link href={"/home"}>
-				<Button>Ir para área logada</Button>
+				<Button>Ir para área logada fabio teste commit</Button>
 			</Link>
 		</>
 	);

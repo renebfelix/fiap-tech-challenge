@@ -6,26 +6,25 @@ import { TransactionsProps } from "@/types/transactions";
 import { Box, Button, Flex, Heading, IconButton } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash, FaPlus } from "react-icons/fa";
 import { ModalAdd } from "./components/ModalAdd";
+import { useEffect, useState } from "react";
 
 
 export default function TransacoesPage(){
 	const { showValues, setShowValues, setModalComponent, controlModal } = useMainContext();
-	const transacoes: Array<TransactionsProps> = [
-		{
-			id: "3b7ec611-9696-4278-a3d3-df8e5e82b97d",
-			date: new Date(),
-			name: "Salário",
-			type: "ENTRADA",
-			value: 1500
-		},
-		{
-			id: "401e7a59-7ee3-44c5-8ad9-79ba98c6934a",
-			date: new Date(),
-			name: "Salário",
-			type: "SAIDA",
-			value: -1500
-		},
-	]
+	const [transactions, setTransactions] = useState<Array<TransactionsProps>>([]);
+
+	async function getTransactions() {
+		const response = await fetch(`http://localhost:3001/transactions`, {
+			method: "GET"
+		});
+
+		const data: Array<TransactionsProps> = await response.json();
+		setTransactions(data);
+	}
+
+	useEffect(() => {
+		getTransactions();
+	}, []);
 
 	return (
 		<Box bgColor={"white"} p={3}>
@@ -58,7 +57,7 @@ export default function TransacoesPage(){
 			</Flex>
 
 			<Flex flexDir={"column"} gap={1}>
-				{transacoes.map((transacao) => {
+				{transactions.map((transacao) => {
 					return <Transactions key={transacao.id} {...transacao} />
 				})}
 			</Flex>

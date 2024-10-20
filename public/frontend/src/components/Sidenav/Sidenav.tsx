@@ -13,7 +13,7 @@ export function Sidenav(params: Readonly<{ links: Array<SidenavLinksProps> }>){
 			maxW={"250px"}
 		>
 			{params.links.map((item) => {
-				return <NavLink key={item.href} {...item} />
+				return <NavLink key={item.id} {...item} />
 			})}
 		</Box>
 	)

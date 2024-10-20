@@ -6,8 +6,8 @@ export function Sidenav(params: { links: Array<SidenavLinksProps> }){
 	return (
 		<Box
 			bgColor={"white"}
-			border={"1px solid"}
-			borderColor={"grey"}
+			border={"5px solid"}
+			borderColor={"white"}
 			height={"100%"}
 			w={"100%"}
 			maxW={"250px"}

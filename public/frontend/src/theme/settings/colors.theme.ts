@@ -7,4 +7,5 @@ export const colorsTheme = {
 	black: "#000000",
 	success: "#47A138",
 	lightGreen: "#E4EDE3",
+	danger: "#F00",
 };

@@ -1,22 +1,12 @@
-import { Box, Text, Button, Select, IconButton } from "@chakra-ui/react";
-import { FaSearch } from "react-icons/fa";
+import { Balance } from "@/components/Balance/Balance";
+import { Box, Heading, } from "@chakra-ui/react";
 
 export default function Page() {
 	return (
 		<Box>
-			<Text variant="small">Extrato</Text>
-			<Text variant="title">Extrato</Text>
+			<Heading mb={3}>Olá, Joana</Heading>
 
-			<Button marginBottom={3} variant="primary">teste button</Button>
-			<Button marginBottom={"large"} variant="secondary">teste button</Button>
-
-			<Select variant="primary">
-				<option value={""}>Selecione</option>
-				<option value={"Opção 1"}>Opção 1</option>
-				<option value={"Opção 2"}>Opção 2</option>
-			</Select>
-
-			<IconButton variant={"circleOutlineSecondary"} icon={<FaSearch />} aria-label="Search" />
+			<Balance balance={150} />
 		</Box>
 	);
 }

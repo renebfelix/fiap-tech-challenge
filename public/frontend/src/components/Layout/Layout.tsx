@@ -1,9 +1,12 @@
+"use client";
+
 import { ReactNode } from "react";
 import { Sidenav } from "../Sidenav/Sidenav";
 import { SidenavLinksProps } from "@/types/sidenav";
 import { FaHome } from "react-icons/fa";
 import { Box, Flex } from "@chakra-ui/react";
 import { Header } from "../Header/Header";
+import { ModalDefault } from "../Modal/Modal";
 
 export function Layout(params: Readonly<{children: ReactNode}>){
 	const linksSidenav: Array<SidenavLinksProps> = [
@@ -29,6 +32,8 @@ export function Layout(params: Readonly<{children: ReactNode}>){
 					{params.children}
 				</Box>
 			</Flex>
+
+			<ModalDefault />
 		</Box>
 	)
 }

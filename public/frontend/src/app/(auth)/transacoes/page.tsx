@@ -5,10 +5,11 @@ import { useMainContext } from "@/contexts/mainContext";
 import { TransactionsProps } from "@/types/transactions";
 import { Box, Button, Flex, Heading, IconButton } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash, FaPlus } from "react-icons/fa";
+import { ModalAdd } from "./components/ModalAdd";
 
 
 export default function TransacoesPage(){
-	const { showValues, setShowValues } = useMainContext();
+	const { showValues, setShowValues, setModalComponent, controlModal } = useMainContext();
 	const transacoes: Array<TransactionsProps> = [
 		{
 			id: "3b7ec611-9696-4278-a3d3-df8e5e82b97d",
@@ -32,7 +33,21 @@ export default function TransacoesPage(){
 				<Heading as={"h1"}>Transações</Heading>
 
 				<Flex gap={2}>
-					<Button leftIcon={<FaPlus />} variant={"secondary"}>Adicionar</Button>
+					<Button
+						leftIcon={<FaPlus />}
+						variant={"secondary"}
+						onClick={() => {
+							setModalComponent({
+								title: "Adicionar transação",
+								bodyComponent: <ModalAdd />
+							});
+
+							controlModal.onOpen();
+						}}
+					>
+						Adicionar
+					</Button>
+
 					<IconButton
 						icon={showValues ? <FaEyeSlash /> : <FaEye />}
 						variant={"circleOutlineSecondary"}

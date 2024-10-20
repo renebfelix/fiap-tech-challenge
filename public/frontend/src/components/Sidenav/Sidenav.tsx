@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import { SidenavLinksProps } from "@/types/sidenav";
 import { NavLink } from "../NavLink/NavLink";
 
-export function Sidenav(params: { links: Array<SidenavLinksProps> }){
+export function Sidenav(params: Readonly<{ links: Array<SidenavLinksProps> }>){
 	return (
 		<Box
 			bgColor={"white"}

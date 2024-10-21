@@ -10,8 +10,11 @@ import moment from "moment";
 import { FaPen } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 
-export function Transactions(params: Readonly<TransactionsProps>){
-	const { date, name, type, value } = params;
+export function Transactions(params: Readonly<{
+	transactions: TransactionsProps,
+	mode: "FULL" | "BASIC"
+}>){
+	const { date, name, type, value } = params.transactions;
 	const { showValues, setModalComponent, controlModal } = useMainContext();
 
 	return (
@@ -32,35 +35,37 @@ export function Transactions(params: Readonly<TransactionsProps>){
 						{showValues ? moneyCurrency(value) : "R$ ***"}
 					</Text>
 
-					<Flex gap={1}>
-						<IconButton
-							variant={"circleOutlineSecondary"}
-							icon={<FaPen />}
-							aria-label="Editar"
-							onClick={() => {
-								setModalComponent({
-									title: "Editar transação",
-									bodyComponent: <ModalForm edit={params} />
-								})
+					{ params.mode === "FULL" && (
+						<Flex gap={1}>
+							<IconButton
+								variant={"circleOutlineSecondary"}
+								icon={<FaPen />}
+								aria-label="Editar"
+								onClick={() => {
+									setModalComponent({
+										title: "Editar transação",
+										bodyComponent: <ModalForm edit={params.transactions} />
+									})
 
-								controlModal.onOpen();
-							}}
-						/>
+									controlModal.onOpen();
+								}}
+							/>
 
-						<IconButton
-							variant={"circleOutlineSecondary"}
-							icon={<FaX />}
-							aria-label="Deletar"
-							onClick={() => {
-								setModalComponent({
-									title: "Deletar transação",
-									bodyComponent: <ModalDelete transacao={params} />
-								})
+							<IconButton
+								variant={"circleOutlineSecondary"}
+								icon={<FaX />}
+								aria-label="Deletar"
+								onClick={() => {
+									setModalComponent({
+										title: "Deletar transação",
+										bodyComponent: <ModalDelete transacao={params.transactions} />
+									})
 
-								controlModal.onOpen();
-							}}
-						/>
-					</Flex>
+									controlModal.onOpen();
+								}}
+							/>
+						</Flex>
+					) }
 				</Flex>
 			</Flex>
 		</Box>

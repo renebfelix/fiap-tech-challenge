@@ -53,8 +53,8 @@ export default function TransacoesPage(){
 			</Flex>
 
 			<Flex flexDir={"column"} gap={1}>
-				{transactions.map((transacao) => {
-					return <Transactions key={transacao.id} {...transacao} />
+				{transactions.toReversed().map((transacao) => {
+					return <Transactions key={transacao.id} mode="FULL" transactions={transacao} />
 				})}
 			</Flex>
 		</Box>

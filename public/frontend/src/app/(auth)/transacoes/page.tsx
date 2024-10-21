@@ -2,29 +2,20 @@
 
 import { Transactions } from "@/components/Transactions/Transactions";
 import { useMainContext } from "@/contexts/mainContext";
-import { TransactionsProps } from "@/types/transactions";
 import { Box, Button, Flex, Heading, IconButton } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash, FaPlus } from "react-icons/fa";
-import { ModalAdd } from "./components/ModalAdd";
-import { useEffect, useState } from "react";
-
+import { ModalForm } from "./components/ModalForm";
+import { updateBalance } from "@/services/updateBalance";
+import { moneyCurrency } from "@/utils/moneyCurrency";
 
 export default function TransacoesPage(){
-	const { showValues, setShowValues, setModalComponent, controlModal } = useMainContext();
-	const [transactions, setTransactions] = useState<Array<TransactionsProps>>([]);
-
-	async function getTransactions() {
-		const response = await fetch(`http://localhost:3001/transactions`, {
-			method: "GET"
-		});
-
-		const data: Array<TransactionsProps> = await response.json();
-		setTransactions(data);
-	}
-
-	useEffect(() => {
-		getTransactions();
-	}, []);
+	const {
+		showValues,
+		setShowValues,
+		setModalComponent,
+		controlModal,
+		transactions,
+	} = useMainContext();
 
 	return (
 		<Box bgColor={"white"} p={3}>
@@ -38,7 +29,7 @@ export default function TransacoesPage(){
 						onClick={() => {
 							setModalComponent({
 								title: "Adicionar transação",
-								bodyComponent: <ModalAdd />
+								bodyComponent: <ModalForm />
 							});
 
 							controlModal.onOpen();
@@ -54,6 +45,11 @@ export default function TransacoesPage(){
 						onClick={() => setShowValues(!showValues)}
 					/>
 				</Flex>
+			</Flex>
+
+			<Flex justifyContent={"space-between"} mb={2} bgColor={"offwhite"} p={2} border={"1px solid"} borderColor={"grey"}>
+				<div>Total</div>
+				<strong>{showValues ? moneyCurrency(updateBalance(transactions)) : "R$ ***"}</strong>
 			</Flex>
 
 			<Flex flexDir={"column"} gap={1}>

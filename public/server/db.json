@@ -1,23 +1,11 @@
 {
   "transactions": [
     {
-      "id": "3b7ec611-9696-4278-a3d3-df8e5e82b97d",
-      "date": "2024-10-20",
-      "name": "Salário",
       "type": "ENTRADA",
-      "value": 1500
-    },
-    {
-      "id": "401e7a59-7ee3-44c5-8ad9-79ba98c6934a",
-      "date": "2024-10-20",
       "name": "Salário",
-      "type": "SAIDA",
-      "value": -1500
-    },
-    {
-      "id": "ef0f6c58-ab02-4d77-9ebb-ea0808fb63da",
-      "name": "Gastos mensais",
-      "value": "150,22"
+      "value": 14000,
+      "date": "2024-10-21T23:26:51.175Z",
+      "id": "6ee77c50-94f0-448c-8f5e-b7f31a72a609"
     }
   ]
 }

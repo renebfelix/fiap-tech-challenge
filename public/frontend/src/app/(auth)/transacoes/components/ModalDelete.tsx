@@ -30,7 +30,7 @@ export function ModalDelete({transacao}: Readonly<{ transacao: TransactionsProps
 		<Box>
 			<ModalBody>
 				Você tem certeza que deseja excluir <strong>{transacao.name}</strong>? Esta ação não poderá ser desfeita.
-			</ModalBody>1
+			</ModalBody>
 
 			<ModalFooter gap={2} p={2} borderTop={"1px solid"} borderTopColor={"grey"}>
 				<Button

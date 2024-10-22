@@ -18,7 +18,7 @@ export function ModalDetails({transaction}: Readonly<{transaction: TransactionsP
 					</Tr>
 					<Tr>
 						<Td fontWeight={"bold"}>Data</Td>
-						<Td>{moment(new Date(transaction.date)).format("DD/MM/YYYY")}</Td>
+						<Td>{moment(transaction.date).format("DD/MM/YYYY")}</Td>
 					</Tr>
 					<Tr>
 						<Td fontWeight={"bold"}>Valor</Td>

@@ -3,7 +3,7 @@ import { moneyCurrency } from "@/utils/moneyCurrency";
 import { ModalBody, Table, Tbody, Td, Tr } from "@chakra-ui/react";
 import moment from "moment";
 
-export function ModalDetails({transaction}: {transaction: TransactionsProps}){
+export function ModalDetails({transaction}: Readonly<{transaction: TransactionsProps}>){
 	return (
 		<ModalBody>
 			<Table variant={"striped"}>

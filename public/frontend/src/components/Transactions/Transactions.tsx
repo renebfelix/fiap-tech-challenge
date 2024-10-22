@@ -21,7 +21,7 @@ export function Transactions(params: Readonly<{
 	return (
 		<Box p={"2"} border={"1px solid"} borderColor={"primary"}>
 			<Text variant={"small"} as={"h3"}>
-				{moment(date).format("DD/M/YYYY")}
+				{moment(date).format("DD/MM/YYYY")}
 			</Text>
 
 			<Flex justifyContent={"space-between"} alignItems={"center"}>

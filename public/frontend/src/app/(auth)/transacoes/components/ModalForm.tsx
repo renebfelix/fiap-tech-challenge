@@ -32,7 +32,6 @@ export function ModalForm({ edit }: Readonly<{edit?: TransactionsProps}>){
 					method: edit ? "PUT" : "POST",
 					body: JSON.stringify({
 						...data,
-						date: new Date(),
 						id: uuidV4()
 					})
 				});
@@ -88,6 +87,21 @@ export function ModalForm({ edit }: Readonly<{edit?: TransactionsProps}>){
 					})} px={2} />
 
 					{errors.name && <ErrorTextForm {...errors.name} />}
+				</FormControl>
+
+				<FormControl mb={2}>
+					<FormLabel mb={1}>Data</FormLabel>
+					<Input
+						type="date"
+						{...register("date", {
+							required: {
+								value: true,
+								message: "Campo obrigatório"
+							}
+						})}
+					px={2} />
+
+					{errors.date && <ErrorTextForm {...errors.date} />}
 				</FormControl>
 
 				<FormControl>

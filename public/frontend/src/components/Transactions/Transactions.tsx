@@ -1,13 +1,14 @@
 "use client";
 
 import { ModalDelete } from "@/app/(auth)/transacoes/components/ModalDelete";
+import { ModalDetails } from "@/app/(auth)/transacoes/components/ModalDetails";
 import { ModalForm } from "@/app/(auth)/transacoes/components/ModalForm";
 import { useMainContext } from "@/contexts/mainContext";
 import { TransactionsProps } from "@/types/transactions";
 import { moneyCurrency } from "@/utils/moneyCurrency";
 import { Box, Flex, IconButton, Text } from "@chakra-ui/react";
 import moment from "moment";
-import { FaPen } from "react-icons/fa";
+import { FaEye, FaPen } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 
 export function Transactions(params: Readonly<{
@@ -37,6 +38,20 @@ export function Transactions(params: Readonly<{
 
 					{ params.mode === "FULL" && (
 						<Flex gap={1}>
+							<IconButton
+								variant={"circleOutlineSecondary"}
+								icon={<FaEye />}
+								aria-label="Detalhes"
+								onClick={() => {
+									setModalComponent({
+										title: "Detalhes da transação",
+										bodyComponent: <ModalDetails transaction={params.transactions} />
+									})
+
+									controlModal.onOpen();
+								}}
+							/>
+
 							<IconButton
 								variant={"circleOutlineSecondary"}
 								icon={<FaPen />}

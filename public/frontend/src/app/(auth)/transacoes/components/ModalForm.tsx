@@ -5,6 +5,7 @@ import { useMainContext } from "@/contexts/mainContext";
 import { updateBalance } from "@/services/updateBalance";
 import { TransactionsProps } from "@/types/transactions";
 import { Box, Button, FormControl, FormLabel, Input, ModalBody, ModalFooter, Select } from "@chakra-ui/react";
+import moment from "moment";
 import { useEffect } from "react";
 import { CurrencyInput } from "react-currency-mask";
 import { Controller, useForm } from "react-hook-form";
@@ -19,6 +20,7 @@ export function ModalForm({ edit }: Readonly<{edit?: TransactionsProps}>){
 			setValue("name", edit.name);
 			setValue("value", edit.value);
 			setValue("type", edit.type);
+			setValue("date", moment(edit.date).format("YYYY-MM-DD"));
 		}
 	}, []);
 

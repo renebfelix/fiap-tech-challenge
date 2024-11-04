@@ -21,7 +21,7 @@ export default function Page() {
 
 			<Balance balance={balance} />
 
-			<Box p={2} bgColor={"white"} mt={2}>
+			<Box p={2} bgColor={"white"} mt={2} borderRadius={"8px"}>
 				<Text mb={2}>Últimas transações</Text>
 
 				<Flex flexDirection={"column"} gap={2}>

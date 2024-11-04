@@ -19,8 +19,8 @@ export default function TransacoesPage(){
 
 	return (
 		<Box bgColor={"white"} p={3}>
-			<Flex mb={3} justifyContent={"space-between"} alignItems={"center"}>
-				<Heading as={"h1"}>Transações</Heading>
+			<Flex mb={3} justifyContent={"space-between"} alignItems={"center"} display={{base: 'block', md: 'flex'}}>
+				<Heading as={"h1"} mb={{base: 3, md: 0}}>Transações</Heading>
 
 				<Flex gap={2}>
 					<Button

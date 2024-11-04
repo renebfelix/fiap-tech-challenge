@@ -9,7 +9,7 @@ export function Balance({balance}: Readonly<{balance: number}>){
 	const { setShowValues, showValues } = useMainContext();
 
 	return (
-		<Box bgColor={"primary"} p={3}>
+		<Box bgColor={"primary"} p={3} borderRadius='8px'>
 			<Flex justifyContent={"space-between"} alignItems={"center"} mb={1}>
 				<Text
 					variant={"subtitle"}

@@ -1,22 +1,36 @@
-import { Box, Text, Button, Select, IconButton } from "@chakra-ui/react";
-import { FaSearch } from "react-icons/fa";
+"use client";
+
+import { Balance } from "@/components/Balance/Balance";
+import { Transactions } from "@/components/Transactions/Transactions";
+import { useMainContext } from "@/contexts/mainContext";
+import { TransactionsProps } from "@/types/transactions";
+import { Box, Flex, Heading, Text, } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
 export default function Page() {
+	const { balance, transactions } = useMainContext();
+	const [transactionOrder, setTransactionOrder] = useState<Array<TransactionsProps>>([]);
+
+	useEffect(() => {
+		setTransactionOrder(transactions.toReversed());
+	}, [transactions]);
+
 	return (
 		<Box>
-			<Text variant="small">Extrato</Text>
-			<Text variant="title">Extrato</Text>
+			<Heading mb={3}>Olá, Joana</Heading>
 
-			<Button marginBottom={3} variant="primary">teste button</Button>
-			<Button marginBottom={"large"} variant="secondary">teste button</Button>
+			<Balance balance={balance} />
 
-			<Select variant="primary">
-				<option value={""}>Selecione</option>
-				<option value={"Opção 1"}>Opção 1</option>
-				<option value={"Opção 2"}>Opção 2</option>
-			</Select>
+			<Box p={2} bgColor={"white"} mt={2} borderRadius={"8px"}>
+				<Text mb={2}>Últimas transações</Text>
 
-			<IconButton variant={"circleOutlineSecondary"} icon={<FaSearch />} aria-label="Search" />
+				<Flex flexDirection={"column"} gap={2}>
+					{transactionOrder.map((transacao, index) => {
+						return index <= 2 && <Transactions key={transacao.id} mode="BASIC" transactions={transacao} />
+					})}
+				</Flex>
+			</Box>
+
 		</Box>
 	);
 }

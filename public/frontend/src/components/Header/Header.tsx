@@ -72,7 +72,7 @@ export const Header = (params: { links: Array<SidenavLinksProps>}) => {
 					<Flex justifyContent="space-between">
 						<Box>
 							{params.links.map((item) => {
-								return <NavLink key={item.href} {...item} />
+								return <NavLink key={item.href} {...item} setMobileNavIsOpen={setMobileNavIsOpen} />
 							})}
 						</Box>
 

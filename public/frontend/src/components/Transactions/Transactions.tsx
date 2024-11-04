@@ -24,11 +24,12 @@ export function Transactions(params: Readonly<{
 				{moment(date).format("DD/MM/YYYY")}
 			</Text>
 
-			<Flex justifyContent={"space-between"} alignItems={"center"}>
+			<Flex justifyContent={"space-between"} alignItems={{base: 'start', md:"center"}} flexDirection={{base: 'column', md:'row'}}>
 				<Text variant={"subtitle"} as={"h3"}>{name}</Text>
 
-				<Flex gap={2} alignItems={"flex-end"}>
+				<Flex gap={2} alignItems={"flex-end"} display={{base: 'block', md: 'flex'}}>
 					<Text
+					 mb={{base: 1, md: 0}}
 						variant={"subtitle"}
 						color={type === "ENTRADA" ? "success" : "danger"}
 						as={"h3"}
@@ -36,7 +37,7 @@ export function Transactions(params: Readonly<{
 						{showValues ? moneyCurrency(value) : "R$ ***"}
 					</Text>
 
-					{ params.mode === "FULL" && (
+					{params.mode === "FULL" && (
 						<Flex gap={1}>
 							<IconButton
 								variant={"circleOutlineSecondary"}

@@ -47,7 +47,7 @@ export function Layout(params: Readonly<{children: ReactNode}>){
 			>
 				<Sidenav links={linksSidenav} />
 
-				<Box width={"full"}>
+				<Box width={"full"} paddingX={3}>
 					{params.children}
 				</Box>
 			</Flex>

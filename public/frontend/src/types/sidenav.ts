@@ -5,5 +5,4 @@ export interface SidenavLinksProps {
 	title: string;
 	href: string;
 	icon?: ReactNode;
-	setMobileNavIsOpen: (isOpen: boolean) => void;
 }

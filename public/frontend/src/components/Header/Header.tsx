@@ -4,12 +4,12 @@ import { Flex, Box, Text, IconButton, Button } from "@chakra-ui/react";
 import { IoIosMenu } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { MdClose } from "react-icons/md";
-import { useState } from "react";
 import { SidenavLinksProps } from "@/types/sidenav";
 import { NavLink } from "../NavLink/NavLink";
+import { useMainContext } from "@/contexts/mainContext";
 
 export const Header = (params: { links: Array<SidenavLinksProps>}) => {
-	const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false);
+	const { menuMobile, setMenuMobile } = useMainContext();
 
 	return (
 		<Flex
@@ -31,7 +31,7 @@ export const Header = (params: { links: Array<SidenavLinksProps>}) => {
 					variant="unstyled"
 					display={{ md: "none" }}
 					color="secondary"
-					onClick={() => setMobileNavIsOpen(true)}
+					onClick={() => setMenuMobile(true)}
 				>
 					<IoIosMenu fontSize={"32px"} />
 				</Button>
@@ -58,7 +58,7 @@ export const Header = (params: { links: Array<SidenavLinksProps>}) => {
 				</Flex>
 			</Flex>
 
-			{mobileNavIsOpen && (
+			{menuMobile && (
 				<Box
 					position="absolute"
 					backgroundColor="lightGreen"
@@ -72,14 +72,14 @@ export const Header = (params: { links: Array<SidenavLinksProps>}) => {
 					<Flex justifyContent="space-between">
 						<Box>
 							{params.links.map((item) => {
-								return <NavLink key={item.href} {...item} setMobileNavIsOpen={setMobileNavIsOpen} />
+								return <NavLink key={item.href} {...item} />
 							})}
 						</Box>
 
 						<Button
 							variant="unstyled"
 							color="success"
-							onClick={() => setMobileNavIsOpen(false)}
+							onClick={() => setMenuMobile(false)}
 						>
 							<MdClose fontSize={"32px"} />
 						</Button>

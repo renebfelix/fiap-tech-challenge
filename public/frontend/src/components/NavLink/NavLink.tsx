@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function NavLink(params: Readonly<SidenavLinksProps>){
 	return (
-		<Link href={params.href}>
+		<Link href={params.href} onClick={() => params.setMobileNavIsOpen(false)}>
 			<Flex
 				p={2}
 				borderBottom={"1px solid"}

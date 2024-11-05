@@ -39,7 +39,7 @@ export const buttonTheme = defineStyleConfig({
 		},
 		circleOutlineSecondary: {
 			borderRadius: "100%",
-			backgroundColor: "white",
+			backgroundColor: "none",
 			border: "1px solid",
 			borderColor: "secondary",
 			color: "secondary",
